@@ -17,21 +17,21 @@ app = Client(
     plugins={'root':'StringSessionBot'},
 )
 
-    async def start(self):
-        await super().start()
-        me = await self.get_me()
-        logging.info(f"{me.first_name} with for pyrogram v{__version__} (Layer {layer}) started on @{me.username}.")
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, env.PORT).start()
-        self.id = me.id
-        self.username = me.username
-        self.first_name = me.first_name
-        self.set_parse_mode(ParseMode.DEFAULT)
-        text = "<b>๏[-ิ_•ิ]๏ ʙᴏᴛ ʀᴇsᴛᴀʀᴛᴇᴅ !</b>"
-        logging.info(text)
-        success = failed = 0
+async def start(self):
+    await super().start()
+    me = await self.get_me()
+    logging.info(f"{me.first_name} with for pyrogram v{__version__} (Layer {layer}) started on @{me.username}.")
+    app = web.AppRunner(await web_server())
+    await app.setup()
+    bind_address = "0.0.0.0"
+    await web.TCPSite(app, bind_address, env.PORT).start()
+    self.id = me.id
+    self.username = me.username
+    self.first_name = me.first_name
+    self.set_parse_mode(ParseMode.DEFAULT)
+    text = "<b>๏[-ิ_•ิ]๏ ʙᴏᴛ ʀᴇsᴛᴀʀᴛᴇᴅ !</b>"
+    logging.info(text)
+    success = failed = 0
 
 
 if __name__ == "__main__":

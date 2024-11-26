@@ -24,7 +24,7 @@ app = Client(
         app = web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, Config.PORT).start()
+        await web.TCPSite(app, bind_address, env.PORT).start()
         self.id = me.id
         self.username = me.username
         self.first_name = me.first_name
